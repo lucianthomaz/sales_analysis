@@ -23,7 +23,7 @@ Saída: HOMEPATH/data/out
 
 ## Solução adotada para o projeto
 Para o monitoramente do diretório foi utilizada a interface públic Watch Service do pacote java.nio.file, 
-que funciona como um monitor de eventos em um diretório específicado. O Watch Service (https://docs.oracle.com/javase/7/docs/api/java/nio/file/WatchService.html) 
+que funciona como um monitor de eventos em um diretório específico. O Watch Service (https://docs.oracle.com/javase/7/docs/api/java/nio/file/WatchService.html) 
 permite que sejam sinalizados os tipos de eventos que devem ser monitorados e, para esta solução, usei o seguinte:
 * StandardWatchEventKinds.ENTRY_CREATE - Gera um evento a cada criação de um novo arquivo no diretório monitorado.
 
