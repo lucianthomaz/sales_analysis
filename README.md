@@ -30,6 +30,10 @@ permite que sejam sinalizados os tipos de eventos que devem ser monitorados e, p
 Desta forma, a cada inclusão de um arquivo no diretório de entrada padrão monitorado, é disparado o processamento do arquivo de entrada 
 e geração do relatório de saída.
 
+## Tratamento de exceção
+* Caso haja linhas em branco no arquivo de entrada, as mesmas serão despresadas.
+* Caso não haja Vendedores, Clientes ou Vendas no arquivo de entrada, uma excessão de negócio é lançada informando que tal dado não foi encontrado no arquivo de entrada.
+
 ## Exemplo de arquivo de entrada
 ### Dados do vendedor
 Os dados do vendedor possuem o identificador 001 e seguem o seguinte formato:
