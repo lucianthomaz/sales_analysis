@@ -70,5 +70,5 @@ Worst Salesman Name: Paulo
 
 ## Comando para execução
 ```
-gradle bootRun
+.\gradlew bootRun
 ```
