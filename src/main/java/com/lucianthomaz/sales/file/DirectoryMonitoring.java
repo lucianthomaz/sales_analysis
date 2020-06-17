@@ -2,6 +2,7 @@ package com.lucianthomaz.sales.file;
 
 import com.lucianthomaz.sales.service.DataProcessing;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.*;
 
@@ -15,6 +16,8 @@ public class DirectoryMonitoring {
    DataProcessing dataProcessing = new DataProcessing();
 
    public void monitorDirectory() {
+
+      directoryCreation();
 
       try {
          Path inputPath = INPUT_PATH.getPath();
@@ -44,6 +47,13 @@ public class DirectoryMonitoring {
       } catch (IOException e) {
          throw new RuntimeException("An error occurred while trying to monitor the folder", e);
       }
+   }
+
+   private void directoryCreation() {
+      File inputDirectory = new File(INPUT_PATH.getPath().toString());
+      File outputDirectory = new File(OUTPUT_PATH.getPath().toString());
+      inputDirectory.mkdirs();
+      outputDirectory.mkdirs();
    }
 
 }

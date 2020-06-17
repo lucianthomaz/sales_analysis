@@ -6,6 +6,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -23,6 +24,10 @@ class FileIOTest {
 
    @BeforeAll
    public static void setup() throws IOException {
+      File inputDirectory = new File(INPUT_PATH.getPath().toString());
+      File outputDirectory = new File(OUTPUT_PATH.getPath().toString());
+      inputDirectory.mkdirs();
+      outputDirectory.mkdirs();
       Files.write(inputPath, InDataProvider.getEntrada());
    }
 
