@@ -15,8 +15,8 @@ Saída: HOMEPATH/data/out
 ## Gerenciador de dependencias e ferramenta de build
 * Gradle 6.4.1
 
-## Versão do JDK
-* Java 11
+## Versão do Java
+* Necessário JDK 11 instalado.
 
 ## Bibliotecas externas utilizadas
 * org.projectlombok:lombok:1.18.10 - Biblioteca Java utilizada para redução de código fonte nos projetos(https://projectlombok.org/)
@@ -30,9 +30,11 @@ permite que sejam sinalizados os tipos de eventos que devem ser monitorados e, p
 Desta forma, a cada inclusão de um arquivo no diretório de entrada padrão monitorado, é disparado o processamento do arquivo de entrada 
 e geração do relatório de saída.
 
+Para iniciar a execução do sistema, as pastas HOMEPATH/data/in e HOMEPATH/data/out deverão existir, ou será lançado uma excessão informando que não foi possível monitorar a pasta especificada.
+
 ## Tratamento de exceção
 * Caso haja linhas em branco no arquivo de entrada, as mesmas serão despresadas.
-* Caso não haja Vendedores, Clientes ou Vendas no arquivo de entrada, uma excessão de negócio é lançada informando que tal dado não foi encontrado no arquivo de entrada.
+* Caso não haja Vendedores, Clientes ou Vendas no arquivo de entrada, o arquivo de saída será gerado com valores zerados.
 
 ## Exemplo de arquivo de entrada
 ### Dados do vendedor
