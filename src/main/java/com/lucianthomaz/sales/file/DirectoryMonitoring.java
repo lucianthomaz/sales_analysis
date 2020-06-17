@@ -17,20 +17,21 @@ public class DirectoryMonitoring {
    public void monitorDirectory() {
 
       try {
+         Path inputPath = INPUT_PATH.getPath();
          WatchService watchService = FileSystems.getDefault().newWatchService();
-         INPUT_PATH.getPath().register( watchService, StandardWatchEventKinds.ENTRY_CREATE);
+         inputPath.register( watchService, StandardWatchEventKinds.ENTRY_CREATE);
          WatchKey key;
          while ((key = watchService.take()) != null) {
             for (WatchEvent<?> event : key.pollEvents()) {
-               Path newInPath = INPUT_PATH.getPath().resolve(event.context().toString());
+               Path newInPath = inputPath.resolve(event.context().toString());
                Path newOutPath = OUTPUT_PATH.getPath().resolve(event.context().toString());
-               boolean isGrowing = false;
-               Long initialWeight = 0L;
-               Long finalWeight = 0L;
+               boolean isGrowing;
+               long initialWeight;
+               long finalWeight;
                do {
-                  initialWeight = INPUT_PATH.getPath().toFile().length();
+                  initialWeight = inputPath.toFile().length();
                   Thread.sleep(200);
-                  finalWeight = INPUT_PATH.getPath().toFile().length();
+                  finalWeight = inputPath.toFile().length();
                   isGrowing = initialWeight < finalWeight;
 
                } while (isGrowing);
