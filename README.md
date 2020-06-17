@@ -22,6 +22,8 @@ Saída: HOMEPATH/data/out
 * org.projectlombok:lombok:1.18.10 - Biblioteca Java utilizada para redução de código fonte nos projetos(https://projectlombok.org/)
 
 ## Solução adotada para o projeto
+Ao iniciar a execução do sistema, caso as pastas HOMEPATH/data/in e HOMEPATH/data/out não existam, as mesmas serão criadas.
+
 Para o monitoramente do diretório foi utilizada a interface públic Watch Service do pacote java.nio.file, 
 que funciona como um monitor de eventos em um diretório específico. O Watch Service (https://docs.oracle.com/javase/7/docs/api/java/nio/file/WatchService.html) 
 permite que sejam sinalizados os tipos de eventos que devem ser monitorados e, para esta solução, usei o seguinte:
@@ -29,8 +31,6 @@ permite que sejam sinalizados os tipos de eventos que devem ser monitorados e, p
 
 Desta forma, a cada inclusão de um arquivo no diretório de entrada padrão monitorado, é disparado o processamento do arquivo de entrada 
 e geração do relatório de saída.
-
-Para iniciar a execução do sistema, as pastas HOMEPATH/data/in e HOMEPATH/data/out deverão existir, ou será lançado uma excessão informando que não foi possível monitorar a pasta especificada.
 
 ## Tratamento de exceção
 * Caso haja linhas em branco no arquivo de entrada, as mesmas serão despresadas.
